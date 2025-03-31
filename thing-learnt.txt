@@ -1,0 +1,10 @@
+so the thing is in hrefs:
+
+../ moves one directory up
+/ at the start of href defines the path absolute from the root of the website
+
+/a/1.html to /a/2.html
+just put href="2.html" (same directory)
+
+/a/b/c/1.html to /a/2.html
+href = "../../2.html (2 levels up)
