@@ -30,12 +30,14 @@
     top: 150px;
     right: 0;
     background: rgba(255, 255, 255, 0.8);
-    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px); /* Safari/Chrome */
+    backdrop-filter: blur(5px); /* Modern browsers */
     border-radius: 30px;
     padding: 8px;
     z-index: 999;
     transition: background 0.3s;
   }
+  
   
   body.dark-mode nav.side-nav {
     background: rgba(100, 100, 150, 0.2);
