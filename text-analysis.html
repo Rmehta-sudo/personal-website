@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Text Analysis - Rachit's Portfolio</title>
+  <link rel="stylesheet" href="css/analysis.css">
+  <link href="https://fonts.googleapis.com/css2?family=Major+Mono+Display&family=Poppins:wght@300;400;500;600&family=Roboto+Mono:wght@400;500&display=swap" rel="stylesheet">
+  
+</head>
+<body>
+  <!-- Back to top & theme controls -->
+  <div class="back-to-top">
+    <button id="back-to-top" title="Back to Top">⬆️</button>
+  </div>
+
+  <div class="fixed-controls">
+    <button id="theme-toggle" title="Toggle Theme">🌓</button>
+    <button id="font-toggle" title="Toggle Font">🔣</button>
+  </div>
+
+  <header class="logo-header">
+    <div class="logo">RM</div>
+    <nav class="side-nav">
+      <ul>
+        <li><a href="index.html#about">About</a></li>
+        <li><a href="index.html#education">Education</a></li>
+        <li><a href="index.html#skills">Skills</a></li>
+        <li><a href="index.html#projects">Projects</a></li>
+        <li><a href="index.html#cv">CV</a></li>
+        <li><a href="text-analysis.html" class="active">Text Analysis</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section class="section">
+      <h2>Text Analysis Tool</h2>
+      <p>Enter text below and click "Analyze" to see word statistics and language patterns.</p>
+
+      <div class="text-analysis-container">
+        <div class="sample-texts">
+          <button class="sample-btn" id="sample-1">Shakespeare</button>
+          <button class="sample-btn" id="sample-2">Modern Novel</button>
+          <button class="sample-btn" id="sample-3">Technical Article</button>
+        </div>
+
+        <textarea id="text-input" placeholder="Paste or type your text here (10,000+ words recommended)"></textarea>
+        <button id="analyze-btn" class="analyze-btn">Analyze Text</button>
+
+        <div class="results-container" id="results">
+          <!-- Results will appear here after analysis -->
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script src="js/script.js"></script>
+  <script>
+    // Text analysis script
+    document.addEventListener('DOMContentLoaded', function() {
+      const analyzeBtn = document.getElementById('analyze-btn');
+      const textInput = document.getElementById('text-input');
+      const resultsContainer = document.getElementById('results');
+      
+      // Sample texts
+      const sampleTexts = {
+        sample1: `To be, or not to be, that is the question:
+Whether 'tis nobler in the mind to suffer
+The slings and arrows of outrageous fortune,
+Or to take arms against a sea of troubles
+And by opposing end them. To die—to sleep,
+No more; and by a sleep to say we end
+The heart-ache and the thousand natural shocks
+That flesh is heir to: 'tis a consummation
+Devoutly to be wish'd. To die, to sleep;
+To sleep, perchance to dream—ay, there's the rub:
+For in that sleep of death what dreams may come,
+When we have shuffled off this mortal coil,
+Must give us pause—there's the respect
+That makes calamity of so long life.
+For who would bear the whips and scorns of time,
+Th'oppressor's wrong, the proud man's contumely,
+The pangs of dispriz'd love, the law's delay,
+The insolence of office, and the spurns
+That patient merit of th'unworthy takes,
+When he himself might his quietus make
+With a bare bodkin? Who would fardels bear,
+To grunt and sweat under a weary life,
+But that the dread of something after death,
+The undiscovere'd country, from whose bourn
+No traveller returns, puzzles the will,
+And makes us rather bear those ills we have
+Than fly to others that we know not of?
+Thus conscience does make cowards of us all,
+And thus the native hue of resolution
+Is sicklied o'er with the pale cast of thought,
+And enterprises of great pitch and moment
+With this regard their currents turn awry
+And lose the name of action.`,
+        sample2: `The morning sun cast long shadows across the field as Sarah made her way to the old oak tree. She had been coming here for years, a quiet place to think and reflect on her life. The tree had stood for generations, its branches reaching toward the sky like fingers grasping for the heavens. 
+
+Under its shade, she felt a peace that was hard to find elsewhere. The world around her was changing too quickly—technology advancing, people moving in and out of her life, the small town growing into something unrecognizable. But the tree remained constant.
+
+She sat with her back against the rough bark, feeling its solidity behind her. From her bag, she pulled out the letter that had arrived yesterday. The university had accepted her application. She would be leaving this place, this tree, this life behind.
+
+Mixed emotions swirled within her. Excitement for the future, fear of the unknown, sadness at leaving behind everything familiar. The oak had witnessed so many of her pivotal moments—her first kiss with James when they were sixteen, the tears she'd shed when her grandmother passed, the hours spent reading books that transported her to other worlds.
+
+A gentle breeze rustled the leaves above, and she looked up through the canopy to glimpses of blue sky beyond. The sound reminded her of her grandmother's words: "Life is like the wind in the trees, my dear. You cannot stop it from blowing, but you can choose how to bend with it."
+
+Sarah traced her fingers over the acceptance letter. This was her wind, and it was time to bend in a new direction. She would return to this tree whenever she came home, but for now, new adventures awaited. With a deep breath, she folded the letter and placed it back in her bag.
+
+As she stood to leave, she pressed her palm against the trunk one more time, silently thanking the old oak for its steadfast presence in her life. Then she turned and walked back across the field, her shadow stretching behind her, connecting her to the place she was leaving but would never truly leave behind.`,
+        sample3: `The advancement of artificial intelligence in natural language processing has revolutionized how humans interact with machines. Through sophisticated neural network architectures and machine learning algorithms, computers can now understand and generate human language with remarkable accuracy. This progress has significant implications for various sectors including healthcare, education, customer service, and content creation.
+
+Neural networks, particularly transformer models like BERT, GPT, and T5, have demonstrated impressive capabilities in tasks such as translation, summarization, question answering, and text generation. These models leverage self-attention mechanisms to capture contextual relationships between words, allowing them to understand nuances in language that previous rule-based systems could not grasp.
+
+The training process for these models involves exposure to vast corpora of text data, often containing billions of words from diverse sources. During training, the models learn to predict words or tokens based on surrounding context, effectively developing an internal representation of language statistics and patterns. This unsupervised pre-training phase is typically followed by fine-tuning on specific tasks to adapt the general language understanding to particular applications.
+
+However, challenges remain in the field. Models can perpetuate biases present in training data, struggle with reasoning tasks requiring world knowledge, and sometimes generate plausible but factually incorrect information. Researchers are actively addressing these limitations through techniques such as dataset curation, adversarial training, and incorporating knowledge graphs.
+
+The computational requirements for training state-of-the-art language models are substantial, raising concerns about environmental impact and accessibility. The carbon footprint associated with training large models has prompted research into more efficient architectures and training methods. Additionally, the concentration of resources required for developing these systems has implications for who can participate in and benefit from advances in AI research.
+
+Despite these challenges, the potential applications of NLP technologies are vast. In healthcare, they can assist with clinical documentation, medical literature review, and patient communication. Educational applications include personalized tutoring, automated grading, and content summarization. Customer service has been transformed through chatbots and virtual assistants that can handle increasingly complex queries.
+
+As these technologies continue to evolve, interdisciplinary collaboration between computer scientists, linguists, ethicists, and domain experts becomes increasingly important. The goal is to develop systems that not only perform well on technical benchmarks but also serve human needs responsibly and equitably.`
+      };
+
+      // Event listeners for sample texts
+      document.getElementById('sample-1').addEventListener('click', function() {
+        textInput.value = sampleTexts.sample1;
+      });
+      document.getElementById('sample-2').addEventListener('click', function() {
+        textInput.value = sampleTexts.sample2;
+      });
+      document.getElementById('sample-3').addEventListener('click', function() {
+        textInput.value = sampleTexts.sample3;
+      });
+
+      // Lists for tokenization
+      const pronouns = [
+        'i', 'me', 'my', 'mine', 'myself',
+        'you', 'your', 'yours', 'yourself', 'yourselves',
+        'he', 'him', 'his', 'himself',
+        'she', 'her', 'hers', 'herself',
+        'it', 'its', 'itself',
+        'we', 'us', 'our', 'ours', 'ourselves',
+        'they', 'them', 'their', 'theirs', 'themselves',
+        'this', 'that', 'these', 'those',
+        'who', 'whom', 'whose', 'which', 'what'
+      ];
+
+      const prepositions = [
+        'about', 'above', 'across', 'after', 'against', 'along', 'amid', 'among',
+        'around', 'at', 'before', 'behind', 'below', 'beneath', 'beside', 'between',
+        'beyond', 'by', 'concerning', 'considering', 'despite', 'down', 'during',
+        'except', 'for', 'from', 'in', 'inside', 'into', 'like', 'near', 'of',
+        'off', 'on', 'onto', 'out', 'outside', 'over', 'past', 'regarding',
+        'since', 'through', 'throughout', 'to', 'toward', 'under', 'underneath',
+        'until', 'unto', 'up', 'upon', 'with', 'within', 'without'
+      ];
+
+      const indefiniteArticles = ['a', 'an'];
+
+      // Click handler for analyze button
+      analyzeBtn.addEventListener('click', function() {
+        const text = textInput.value;
+        
+        if (!text) {
+          alert('Please enter some text to analyze');
+          return;
+        }
+
+        // Clear previous results
+        resultsContainer.innerHTML = '';
+        
+        // Perform text analysis
+        const analysis = analyzeText(text);
+        
+        // Display results
+        displayResults(analysis);
+        
+        // Scroll to results - smooth scroll
+        resultsContainer.scrollIntoView({behavior: 'smooth'});
+      });
+
+      // Text analysis function
+      function analyzeText(text) {
+        // Basic counts
+        const letterCount = (text.match(/[a-zA-Z]/g) || []).length;
+        const wordCount = text.split(/\s+/).filter(word => word.length > 0).length;
+        const spaceCount = (text.match(/\s/g) || []).length;
+        const newlineCount = (text.match(/\n/g) || []).length;
+        const specialSymbolCount = (text.match(/[^\w\s\n]/g) || []).length;
+        
+        // Tokenize text for word analysis (convert to lowercase and remove punctuation)
+        const tokens = text.toLowerCase()
+          .replace(/[^\w\s]/g, ' ')
+          .split(/\s+/)
+          .filter(token => token.length > 0);
+        
+        // Count pronouns
+        const pronounCounts = {};
+        tokens.forEach(token => {
+          if (pronouns.includes(token)) {
+            pronounCounts[token] = (pronounCounts[token] || 0) + 1;
+          }
+        });
+        
+        // Count prepositions
+        const prepositionCounts = {};
+        tokens.forEach(token => {
+          if (prepositions.includes(token)) {
+            prepositionCounts[token] = (prepositionCounts[token] || 0) + 1;
+          }
+        });
+        
+        // Count indefinite articles
+        const articleCounts = {};
+        tokens.forEach(token => {
+          if (indefiniteArticles.includes(token)) {
+            articleCounts[token] = (articleCounts[token] || 0) + 1;
+          }
+        });
+        
+        return {
+          letterCount,
+          wordCount,
+          spaceCount,
+          newlineCount,
+          specialSymbolCount,
+          pronounCounts,
+          prepositionCounts,
+          articleCounts
+        };
+      }
+
+      // Display results function
+      function displayResults(analysis) {
+        // Create basic counts section
+        const basicCountsSection = document.createElement('div');
+        basicCountsSection.className = 'result-section';
+        basicCountsSection.innerHTML = `
+          <h3>Basic Text Statistics</h3>
+          <div class="word-count">
+            <div class="count-item">Letters: <span>${analysis.letterCount}</span></div>
+            <div class="count-item">Words: <span>${analysis.wordCount}</span></div>
+            <div class="count-item">Spaces: <span>${analysis.spaceCount}</span></div>
+            <div class="count-item">Newlines: <span>${analysis.newlineCount}</span></div>
+            <div class="count-item">Special Symbols: <span>${analysis.specialSymbolCount}</span></div>
+          </div>
+        `;
+        resultsContainer.appendChild(basicCountsSection);
+        
+        // Create pronouns section
+        const pronounSection = document.createElement('div');
+        pronounSection.className = 'result-section';
+        pronounSection.innerHTML = `<h3>Pronouns (${Object.keys(analysis.pronounCounts).length} types found)</h3>`;
+        
+        if (Object.keys(analysis.pronounCounts).length > 0) {
+          const wordGroup = document.createElement('div');
+          wordGroup.className = 'word-group';
+          
+          // Sort pronouns by count (descending)
+          const sortedPronouns = Object.entries(analysis.pronounCounts)
+            .sort((a, b) => b[1] - a[1]);
+          
+          sortedPronouns.forEach(([pronoun, count]) => {
+            const wordItem = document.createElement('div');
+            wordItem.className = 'word-item';
+            wordItem.innerHTML = `
+              <div>${pronoun}</div>
+              <div class="word-count-badge">${count}</div>
+            `;
+            wordGroup.appendChild(wordItem);
+          });
+          
+          pronounSection.appendChild(wordGroup);
+        } else {
+          pronounSection.innerHTML += `<p>No pronouns found in the text.</p>`;
+        }
+        
+        resultsContainer.appendChild(pronounSection);
+        
+        // Create prepositions section
+        const prepositionSection = document.createElement('div');
+        prepositionSection.className = 'result-section';
+        prepositionSection.innerHTML = `<h3>Prepositions (${Object.keys(analysis.prepositionCounts).length} types found)</h3>`;
+        
+        if (Object.keys(analysis.prepositionCounts).length > 0) {
+          const wordGroup = document.createElement('div');
+          wordGroup.className = 'word-group';
+          
+          // Sort prepositions by count (descending)
+          const sortedPrepositions = Object.entries(analysis.prepositionCounts)
+            .sort((a, b) => b[1] - a[1]);
+          
+          sortedPrepositions.forEach(([preposition, count]) => {
+            const wordItem = document.createElement('div');
+            wordItem.className = 'word-item';
+            wordItem.innerHTML = `
+              <div>${preposition}</div>
+              <div class="word-count-badge">${count}</div>
+            `;
+            wordGroup.appendChild(wordItem);
+          });
+          
+          prepositionSection.appendChild(wordGroup);
+        } else {
+          prepositionSection.innerHTML += `<p>No prepositions found in the text.</p>`;
+        }
+        
+        resultsContainer.appendChild(prepositionSection);
+        
+        // Create indefinite articles section
+        const articleSection = document.createElement('div');
+        articleSection.className = 'result-section';
+        articleSection.innerHTML = `<h3>Indefinite Articles (${Object.keys(analysis.articleCounts).length} types found)</h3>`;
+        
+        if (Object.keys(analysis.articleCounts).length > 0) {
+          const wordGroup = document.createElement('div');
+          wordGroup.className = 'word-group';
+          
+          // Sort articles by count (descending)
+          const sortedArticles = Object.entries(analysis.articleCounts)
+            .sort((a, b) => b[1] - a[1]);
+          
+          sortedArticles.forEach(([article, count]) => {
+            const wordItem = document.createElement('div');
+            wordItem.className = 'word-item';
+            wordItem.innerHTML = `
+              <div>${article}</div>
+              <div class="word-count-badge">${count}</div>
+            `;
+            wordGroup.appendChild(wordItem);
+          });
+          
+          articleSection.appendChild(wordGroup);
+        } else {
+          articleSection.innerHTML += `<p>No indefinite articles found in the text.</p>`;
+        }
+        
+        resultsContainer.appendChild(articleSection);
+      }
+
+      // Initialize theme toggle functionality
+      const themeToggle = document.getElementById('theme-toggle');
+      const fontToggle = document.getElementById('font-toggle');
+      const backToTop = document.getElementById('back-to-top');
+      
+      // Theme toggle
+      themeToggle.addEventListener('click', function() {
+        document.body.classList.toggle('dark-mode');
+        localStorage.setItem('dark-mode', document.body.classList.contains('dark-mode'));
+      });
+      
+      // Font toggle
+      fontToggle.addEventListener('click', function() {
+        document.body.classList.toggle('alt-font');
+        localStorage.setItem('alt-font', document.body.classList.contains('alt-font'));
+      });
+      
+      // Back to top
+      backToTop.addEventListener('click', function() {
+        window.scrollTo({
+          top: 0,
+          behavior: 'smooth'
+        });
+      });
+      
+      // Load saved preferences
+      if (localStorage.getItem('dark-mode') === 'true') {
+        document.body.classList.add('dark-mode');
+      }
+      
+      if (localStorage.getItem('alt-font') === 'true') {
+        document.body.classList.add('alt-font');
+      }
+
+      // Auto-adjust textarea height based on content
+      textInput.addEventListener('input', function() {
+        if (this.scrollHeight > 200) {
+          this.style.height = 'auto';
+          this.style.height = (this.scrollHeight + 5) + 'px';
+        }
+      });
+    });
+  </script>
+</body>
+</html>
