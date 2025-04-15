@@ -83,6 +83,7 @@ nav.side-nav {
     align-items: flex-end;
     transition: top 0.6s ease;
     width: var(--nav-width);
+    padding-top: 30px; /* Added padding at the top */
 }
 
 nav.side-nav ul {
