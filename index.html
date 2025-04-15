@@ -5,30 +5,32 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>My Portfolio</title>
   <link rel="stylesheet" href="css/style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Code&family=Orbitron&family=Roboto+Mono&family=Major+Mono+Display&family=Zilla+Slab+Highlight&display=swap" rel="stylesheet">
 </head>
 <body>
-    <nav class="side-nav">
-        <ul>
-          <li><a href="#home" class="nav-link">Home</a></li>
-          <li><a href="#about" class="nav-link">About</a></li>
-          <li><a href="#education" class="nav-link">Education</a></li>
-          <li><a href="#skills" class="nav-link">Skills</a></li>
-          <li><a href="#projects" class="nav-link">Projects</a></li>
-        </ul>
-      </nav>
+  <nav class="side-nav">
+    <ul>
+      <li><a href="#home" class="nav-link">Home</a></li>
+      <li><a href="#about" class="nav-link">About</a></li>
+      <li><a href="#education" class="nav-link">Education</a></li>
+      <li><a href="#skills" class="nav-link">Skills</a></li>
+      <li><a href="#projects" class="nav-link">Projects</a></li>
+    </ul>
+  </nav>
 
   <main>
     <section id="home" class="section home">
       <h1 id="typewriter"></h1>
-      <button id="theme-toggle">Toggle Theme</button>
     </section>
 
     <section id="about" class="section">
       <h2>About Me</h2>
       <p>Hello! I'm a developer passionate about creating digital experiences...</p>
-      <img src="assets/profile.jpg" alt="Profile Picture" /> <!-- Replace with your own image -->
-      <img src="assets/hometown.jpg" alt="Hometown" /> <!-- Replace with your local photo -->
-    </section>
+      <img src="assets/profile.jpg" alt="Profile Picture" />
+      <img src="assets/hometown.jpg" alt="Hometown" />
+      <img src="assets/profile.jpg" alt="Profile Picture" />
+      <img src="assets/hometown.jpg" alt="Hometown" />      <img src="assets/profile.jpg" alt="Profile Picture" />
+      <img src="assets/hometown.jpg" alt="Hometown" /></section>
 
     <section id="education" class="section">
       <h2>Education</h2>
@@ -41,27 +43,27 @@
         <li>HTML</li>
         <li>CSS</li>
         <li>JavaScript</li>
-        <!-- Add more as needed -->
       </ul>
     </section>
 
     <section id="projects" class="section">
       <h2>Projects</h2>
       <div class="project-button-container">
-        <button class="project-button code-button">
-          <a href="#">&lt;/&gt; code</a>
-        </button>
-        <button class="project-button demo-button">
-          <a href="#">demo</a>
-        </button>
+        <button class="project-button code-button">&lt;/&gt; code</button>
+        <button class="project-button demo-button">▶ demo</button>
       </div>
     </section>
 
     <section class="section">
       <h2>My CV</h2>
-      <a href="assets/my_cv.pdf" target="_blank">Download CV (PDF)</a> <!-- Replace with your CV -->
+      <a href="assets/my_cv.pdf" target="_blank" class="cv-link">Download CV (PDF)</a>
     </section>
   </main>
+
+  <div class="fixed-controls">
+    <button id="theme-toggle" title="Toggle Theme">🌓</button>
+    <button id="font-toggle" title="Toggle Font">🔣</button>
+  </div>
 
   <script src="js/script.js"></script>
 </body>

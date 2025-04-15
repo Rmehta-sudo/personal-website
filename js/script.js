@@ -1,7 +1,4 @@
-// script.js
-
-// Typing Effect
-const typedText = "Hi, I'm Rachit";
+const typedText = "Hi, I'm Rachit :)";
 let i = 0;
 function typeWriter() {
   if (i < typedText.length) {
@@ -12,13 +9,26 @@ function typeWriter() {
 }
 window.onload = typeWriter;
 
-// Theme Toggle
 const toggleBtn = document.getElementById("theme-toggle");
 toggleBtn.addEventListener("click", () => {
   document.body.classList.toggle("dark-mode");
 });
 
-// Event Tracker
+const fonts = [
+  'Fira Code',
+  'Orbitron',
+  'Roboto Mono',
+  'Major Mono Display',
+  'Zilla Slab Highlight',
+];
+let currentFont = 0;
+
+const fontToggleBtn = document.getElementById("font-toggle");
+fontToggleBtn.addEventListener("click", () => {
+  currentFont = (currentFont + 1) % fonts.length;
+  document.body.style.fontFamily = fonts[currentFont];
+});
+
 function trackEvent(type, target) {
   const timestamp = new Date().toISOString();
   const tag = target.tagName.toLowerCase();
@@ -43,6 +53,16 @@ document.querySelectorAll("*").forEach(el => {
   observer.observe(el);
 });
 
+const sideNav = document.querySelector(".side-nav");
+let currentTop = window.scrollY + window.innerHeight / 2 - sideNav.offsetHeight / 2;
+function animateNav() {
+  const targetTop = window.scrollY + window.innerHeight / 2 - sideNav.offsetHeight / 2;
+  currentTop += (targetTop - currentTop) * 0.2;
+  sideNav.style.top = `${currentTop}px`;
+  requestAnimationFrame(animateNav);
+}
+requestAnimationFrame(animateNav);
+
 const sections = document.querySelectorAll("section");
 const navLinks = document.querySelectorAll(".nav-link");
 
@@ -62,17 +82,3 @@ window.addEventListener("scroll", () => {
     }
   });
 });
-// Smooth and fast floating nav animation using easing
-const sideNav = document.querySelector(".side-nav");
-let currentTop = window.scrollY + window.innerHeight / 2 - sideNav.offsetHeight / 2;
-
-function animateNav() {
-  const targetTop = window.scrollY + window.innerHeight / 2 - sideNav.offsetHeight / 2;
-  // Ease toward the targetTop — larger factor = faster animation
-  currentTop += (targetTop - currentTop) * 0.2;
-  sideNav.style.top = `${currentTop}px`;
-
-  requestAnimationFrame(animateNav);
-}
-
-requestAnimationFrame(animateNav);
