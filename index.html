@@ -8,37 +8,66 @@
   <link href="https://fonts.googleapis.com/css2?family=Fira+Code&family=Orbitron&family=Roboto+Mono&family=Major+Mono+Display&family=Zilla+Slab+Highlight&display=swap" rel="stylesheet">
 </head>
 <body>
-  <!-- Sidebar -->
-  <aside class="sidebar">
-    <div class="logo">RM</div>
-    <nav class="side-nav">
-      <ul>
-        <li><a href="#home" class="nav-link">Home</a></li>
-        <li><a href="#about" class="nav-link">About</a></li>
-        <li><a href="#education" class="nav-link">Education</a></li>
-        <li><a href="#skills" class="nav-link">Skills</a></li>
-        <li><a href="#projects" class="nav-link">Projects</a></li>
-      </ul>
-    </nav>
-  </aside>
+    <header class="logo-header">
+        <div class="logo">RM</div>
+      </header>
 
-  <!-- Main Content -->
-  <main class="main-content">
+  <nav class="side-nav">
+    <ul>
+      <li><a href="#home" class="nav-link">Home</a></li>
+      <li><a href="#about" class="nav-link">About</a></li>
+      <li><a href="#education" class="nav-link">Education</a></li>
+      <li><a href="#skills" class="nav-link">Skills</a></li>
+      <li><a href="#projects" class="nav-link">Projects</a></li>
+    </ul>
+  </nav>
+
+  <main>
     <section id="home" class="section home">
       <h1 id="typewriter"></h1>
     </section>
 
     <section id="about" class="section">
-      <h2>About Me</h2>
-      <p>Hello! I'm a developer passionate about creating digital experiences...</p>
-      <img src="assets/profile.jpg" alt="Profile Picture" />
-      <img src="assets/hometown.jpg" alt="Hometown" />
-    </section>
-
-    <section id="education" class="section">
-      <h2>Education</h2>
-      <p>Details about schools, achievements etc...</p>
-    </section>
+        <h2>About Me</h2>
+        <p>Hi there! I'm a passionate software developer with a keen interest in web technologies and user experience design. When I'm not coding, you can find me hiking through nature trails, exploring photography, or experimenting with new cooking recipes.</p>
+        
+        <p>I believe in creating elegant, efficient solutions to complex problems and enjoy the process of turning ideas into reality through code.</p>
+        
+        <div class="image-gallery">
+          <img src="assets/profile.jpg" alt="Profile Picture" />
+          <img src="assets/hometown.jpg" alt="Hometown" />
+        </div>
+        
+        <p>My journey in technology began when I was just a teenager, tinkering with HTML and CSS to create simple websites. That curiosity has evolved into a professional path where I continuously strive to learn new skills and improve my craft.</p>
+      </section>
+      
+      <section id="education" class="section">
+        <h2>Education</h2>
+        
+        <div class="education-item">
+          <h3>International Institute of Information Technology</h3>
+          <p class="education-period">2021 - Present</p>
+          <p class="education-degree">Master of Technology in Computer Science</p>
+          <p>Specializing in machine learning and data science with a focus on natural language processing applications.</p>
+          <ul class="education-highlights">
+            <li>Research Assistant in the AI Lab working on sentiment analysis models</li>
+            <li>President of the Coding Club organizing hackathons and workshops</li>
+            <li>Dean's List for academic excellence (2022, 2023)</li>
+          </ul>
+        </div>
+        
+        <div class="education-item">
+          <h3>National Institute of Technology</h3>
+          <p class="education-period">2017 - 2021</p>
+          <p class="education-degree">Bachelor of Technology in Information Technology</p>
+          <p>Graduated with distinction, focusing on web technologies and database systems.</p>
+          <ul class="education-highlights">
+            <li>Final year project: Developed a responsive web application for campus resource management</li>
+            <li>Technical Lead for the college's annual tech festival</li>
+            <li>Won the Best Project Award in the undergraduate showcase</li>
+          </ul>
+        </div>
+      </section>
 
     <section id="skills" class="section">
       <h2>Skills</h2>
@@ -63,7 +92,6 @@
     </section>
   </main>
 
-  <!-- Fixed Controls -->
   <div class="fixed-controls">
     <button id="theme-toggle" title="Toggle Theme">🌓</button>
     <button id="font-toggle" title="Toggle Font">🔣</button>
