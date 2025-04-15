@@ -107,3 +107,10 @@ document.querySelectorAll("*").forEach(el => {
   }, { threshold: 0.5 });
   observer.observe(el);
 });
+// Back to Top functionality
+document.getElementById("back-to-top").addEventListener("click", () => {
+    window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+    });
+});
