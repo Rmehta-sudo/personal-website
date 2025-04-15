@@ -1,13 +1,101 @@
-const typedText = "Hi, I'm Rachit :)";
-let i = 0;
-function typeWriter() {
-  if (i < typedText.length) {
-    document.getElementById("typewriter").innerHTML += typedText.charAt(i);
-    i++;
-    setTimeout(typeWriter, 100);
+const typewriter = document.getElementById("typewriter");
+
+const intro = "Hi, I'm Rachit :)";
+const paragraphs = [
+  "I love building things that live on the web, from websites to web apps, and everything in between.",
+  "I have a knack for problem solving, especially when it comes to clean and efficient code.",
+  "Outside of coding, I enjoy exploring tech trends, writing about code, and brewing the perfect cup of coffee."
+];
+
+const finalMessage = "Welcome to my website :)";
+
+let charIndex = 0;
+let deleting = false;
+let stage = 'intro';
+let currentText = intro;
+let loopFinished = false;
+
+function stopCursorBlink() {
+  typewriter.classList.add("no-cursor");
+}
+
+function typeEffect() {
+  if (loopFinished) return;
+
+  if (!deleting) {
+    typewriter.textContent = currentText.slice(0, charIndex + 1);
+    charIndex++;
+
+    if (charIndex === currentText.length) {
+      let pause = (stage === 'intro') ? 3000 : 1500;
+      setTimeout(() => {
+        deleting = true;
+        typeEffect();
+      }, pause);
+      return;
+    }
+
+  } else {
+    typewriter.textContent = currentText.slice(0, charIndex - 1);
+    charIndex--;
+
+    if (charIndex === 0) {
+      deleting = false;
+      if (stage === 'intro') {
+        stage = 'p1';
+        currentText = paragraphs[0];
+      } else if (stage === 'p1') {
+        stage = 'p2';
+        currentText = paragraphs[1];
+      } else if (stage === 'p2') {
+        stage = 'p3';
+        currentText = paragraphs[2];
+      } else {
+        // Final message begins
+        stage = 'final';
+        charIndex = 0;
+        currentText = finalMessage;
+        typewriter.innerHTML = `${intro}<br>`;
+      }
+    }
+  }
+
+  setTimeout(typeEffect, deleting ? 40 : 60);
+}
+
+function typeFinalMessage() {
+  const existing = `${intro}<br><span class="final-message">${finalMessage.slice(0, charIndex + 1)}</span>`;
+  typewriter.innerHTML = existing;
+  charIndex++;
+
+  if (charIndex < finalMessage.length) {
+    setTimeout(typeFinalMessage, 60);
+  } else {
+    stopCursorBlink();
+    loopFinished = true;
   }
 }
-window.onload = typeWriter;
+
+window.addEventListener("DOMContentLoaded", () => {
+  typeEffect();
+});
+
+// Extend effect for final stage
+const observer = new MutationObserver(() => {
+  if (stage === 'final' && !loopFinished) {
+    observer.disconnect();
+    charIndex = 0;
+    setTimeout(typeFinalMessage, 300);
+  }
+});
+
+observer.observe(typewriter, { childList: true, subtree: true });
+
+
+window.addEventListener("DOMContentLoaded", () => {
+  typeEffect();
+});
+
 
 const toggleBtn = document.getElementById("theme-toggle");
 toggleBtn.addEventListener("click", () => {

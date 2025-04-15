@@ -79,7 +79,32 @@
     background-color: var(--dark-highlight-bg);
     color: var(--dark-highlight-text);
   }
+
+  /* typewrite */
+  #typewriter::after {
+    content: '|';
+    animation: blink 1s step-start infinite;
+    margin-left: 4px;
+  }
   
+  @keyframes blink {
+    50% {
+      opacity: 0;
+    }
+  }
+  
+  #typewriter.no-cursor::after {
+    content: none;
+  }
+  
+  .final-message {
+    display: inline-block;
+    font-weight: 500;
+    font-size: 1.15em;
+    color: var(--accent);
+    font-family: 'Zilla Slab Highlight', serif;
+    margin-top: 8px;
+  }
   /* Sections */
   .section {
     padding: 60px 40px;
