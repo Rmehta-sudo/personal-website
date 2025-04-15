@@ -25,6 +25,7 @@ function getEventObjectType(target) {
     }
 }
 
+
 // Log view events
 window.addEventListener('DOMContentLoaded', () => {
     const timestamp = new Date().toISOString();
