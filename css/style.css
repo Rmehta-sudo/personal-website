@@ -99,14 +99,21 @@
     content: none;
   }
   
-  .final-message {
-    display: inline-block;
-    font-weight: 500;
-    font-size: 1.15em;
-    color: var(--accent);
+  /* .final-message {
     font-family: 'Zilla Slab Highlight', serif;
-    margin-top: 8px;
+    font-size: 1.6rem;
+    color: rgba(80, 80, 80, 0.9);
+    margin-top: 16px;
+    opacity: 0;
+    transition: opacity 1s ease-in;
+    text-align: center;
+    white-space: pre-line;
+    font-weight: 500;
   }
+  
+  body.dark-mode .final-message {
+    color: rgba(230, 230, 230, 0.9);
+  } */
   /* Sections */
   .section {
     padding: 60px 40px;
