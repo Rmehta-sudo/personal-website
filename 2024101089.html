@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>A-Frame Stacked Shapes</title>
+  <script src="https://aframe.io/releases/1.7.0/aframe.min.js"></script>
+</head>
+<body>
+  <a-scene>
+    <!-- Base shape: Cuboid (box with different dimensions) -->
+    <a-box 
+      position="0 0.5 -5" 
+      width="3" 
+      height="1" 
+      depth="2" 
+      color="#4CC3D9"
+      shadow>
+    </a-box>
+    
+    <!-- Middle shape: Torus (horizontal) -->
+    <a-torus
+      position="0 1.5 -5"
+      radius="1"
+      radius-tubular="0.2"
+      rotation="90 0 0"
+      color="#EF2D5E"
+      shadow>
+    </a-torus>
+    
+    <!-- Top shape: Cone with wide base -->
+    <a-cone 
+      position="0 2.92 -5" 
+      radius-bottom="1.4" 
+      radius-top="0"
+      height="2" 
+      color="#FF9500"
+      shadow>
+    </a-cone>
+    
+    <!-- Ground plane -->
+    <a-plane 
+      position="0 0 -5" 
+      rotation="-90 0 0" 
+      width="8" 
+      height="8" 
+      color="#7BC8A4"
+      shadow>
+    </a-plane>
+    
+    <!-- Environment -->
+    <a-sky color="#ECECEC"></a-sky>
+    
+    <!-- Lighting -->
+    <a-light type="ambient" color="#888"></a-light>
+    <a-light type="directional" position="-1 1 1" intensity="0.6"></a-light>
+  </a-scene>
+</body>
+</html>
